@@ -1,1 +1,1 @@
-# broker_ai_bot
+AI Telegram bot for realtor training
