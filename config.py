@@ -1,19 +1,22 @@
+import os
+import logging
+
+from dotenv import load_dotenv, find_dotenv
+
 from groq import Groq
 
 from aiogram import Bot
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 
-GROQ_TOKEN = "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"
-GROQ_CLIENT = Groq(api_key=GROQ_TOKEN)
+load_dotenv(find_dotenv())
+logging.basicConfig(level=logging.INFO)
 
 LLAMA_MODEL = 'llama3-70b-8192'
 
-# broker_mvp_bot
-# mvp bot token
-token = '7516487658:AAGF6Bh_H1bsRwDfmAMXvCH0aciSZWvMXqY'
+GROQ_TOKEN = os.getenv('GROQ_TOKEN')
+GROQ_CLIENT = Groq(api_key=GROQ_TOKEN)
 
-# broker_test1_bot
-# token = '7893263539:AAGohGQk6KkYc8RTUFMfJzkjOvEgeuO0F-0'
+TOKEN = os.getenv('TOKEN')
 
-bot = Bot(token=token, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
+bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
